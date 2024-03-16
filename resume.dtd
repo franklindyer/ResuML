@@ -1,0 +1,23 @@
+<!ELEMENT resume
+    (identity, contact?)>
+<!ELEMENT identity
+    (name, dob?, pronouns?)>
+<!ELEMENT name (#PCDATA)>
+
+<!ELEMENT dob (year, month, day)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT month (#PCDATA)>
+<!ELEMENT day (#PCDATA)>
+
+<!ELEMENT pronouns (#PCDATA)>
+
+<!ELEMENT contact
+    (phone | email)*>
+
+<!ELEMENT phone (#PCDATA)>
+<!ATTLIST phone
+    type (home | work | cell) #IMPLIED>
+
+<!ELEMENT email (#PCDATA)>
+<!ATTLIST email
+    type (personal | work) #IMPLIED>
