@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE resume SYSTEM "resume.dtd">
+<resume>
+
+<identity>
+    <name>Hollis Lomax</name>
+    <pronouns>He/him</pronouns>
+</identity>
+
+<contact>
+    <email type="work">hlomax@missouri.edu</email>
+</contact>
+
+<skills>
+    <skill type="tech">Microsoft Word</skill>
+    <skill type="tech">Microsoft Excel</skill>
+
+    <skill type="proglang">LaTeX</skill> 
+    <skill type="proglang">HTML</skill> 
+    <skill type="proglang">CSS</skill> 
+
+    <skill type="language">
+        English
+        <level>Native</level>
+    </skill>
+
+    <skill type="soft">Literary analysis</skill>
+    <skill type="soft">Teaching</skill>
+</skills>
+
+</resume>
