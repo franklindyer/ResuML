@@ -1,0 +1,6 @@
+priorities:
+    web: 20
+    design: 10
+    soft: 50
+limits:
+    skills: 4 

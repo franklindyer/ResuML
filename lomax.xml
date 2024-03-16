@@ -12,20 +12,21 @@
 </contact>
 
 <skills>
-    <skill type="tech">Microsoft Word</skill>
-    <skill type="tech">Microsoft Excel</skill>
+    <skill type="tech" tags="writing">Microsoft Word</skill>
+    <skill type="tech" tags="stats">Microsoft Excel</skill>
+    <skill type="tech" tags="design">Microsoft Powerpoint</skill>
 
-    <skill type="proglang">LaTeX</skill> 
-    <skill type="proglang">HTML</skill> 
-    <skill type="proglang">CSS</skill> 
+    <skill type="proglang" tags="writing">LaTeX</skill> 
+    <skill type="proglang" tags="web,writing">HTML</skill> 
+    <skill type="proglang" tags="web,design">CSS</skill> 
 
     <skill type="language">
         English
         <level>Native</level>
     </skill>
 
-    <skill type="soft">Literary analysis</skill>
-    <skill type="soft">Teaching</skill>
+    <skill type="soft" tags="writing">Literary analysis</skill>
+    <skill type="soft" tags="teaching">Teaching</skill>
 </skills>
 
 </resume>

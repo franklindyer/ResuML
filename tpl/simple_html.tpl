@@ -5,22 +5,22 @@
 </head>
 
 <body>
-    {% set identity = root.find('identity') -%}
+    {% set identity = resume.find('identity') -%}
     <h1>{{ identity.find('name').text }}'s resumé</h1>
 
-    {% set contact = root.find('contact') -%}
+    {% set contact = resume.find('contact') -%}
     {% set email = contact.find('email') -%}
     <p>You can contact me through my {{ email.get('type') }} email: {{ email.text }}</p>
 
-    {% set skills = root.find('skills') -%}
+    {% set skills = resume.find('skills') -%}
     My skills include:
     <ul>
-        {% for skill in skills.findall('skill') -%}
+        {% for skill in prioritize(skills.findall('skill'), 'skills') -%}
         <li>The {{ {"proglang": "programming language",
                     "tech": "technology",
                     "language": "spoken language of",
                     "soft": "soft skill of"}[skill.get('type')] 
-            }} {{ skill.text }}</li>
+            }} {{ skill.text.strip() }}</li>
         {% endfor %}
     </ul>
 <body>
