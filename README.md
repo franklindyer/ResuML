@@ -1,3 +1,20 @@
+## Usage and directory structure
+
+Here are the purposes of a few directories within this project:
+
+- `data` should contain one or more XML files with resume data
+- `conf` should contain one or more YAML files with config data
+- `tpl` should contain one or more Jinja templates, of any file extension
+- `out` is the directory that will contain the generated resume files
+
+You may generate a resume template as follows:
+
+```
+./generate lomax default basic.html
+```
+
+This will use the resume data from `data/lomax.xml` and the config file from `conf/default.yml` to substitute information into the `tpl/basic.html` template, and dump the output to `out/lomax_basic.html`.
+
 ## YAML config format
 
 The following describes each component of the YAML config file that is to be passed to the script.

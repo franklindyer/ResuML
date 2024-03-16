@@ -27,7 +27,7 @@
 <!ELEMENT skill
     (#PCDATA | certification | level)*>
 <!ATTLIST skill
-    type (tech | proglang | language | soft | other)    "other"
-    tags (PCDATA)                               "">
+    type (tech | proglang | language | soft | other)    #IMPLIED
+    tags CDATA                                          #IMPLIED>
 <!ELEMENT certification (#PCDATA)>
 <!ELEMENT level (#PCDATA)>

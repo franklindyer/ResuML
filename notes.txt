@@ -1,6 +1,0 @@
-brew install libxml2
-
-xmllint filename.xml
-    -> will just parse and display to stdout
-xmllint --valid filename.xml
-    -> will also validate against included DTD

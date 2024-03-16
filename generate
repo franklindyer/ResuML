@@ -1,0 +1,2 @@
+xmllint --valid --noout data/$1.xml
+python3 parser.py data/$1.xml conf/$2.yml tpl/$3 > out/$1_$3
