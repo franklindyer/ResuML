@@ -22,7 +22,12 @@
 
     <skill type="language">
         English
-        <level>Native</level>
+        <level>native</level>
+    </skill>
+    <skill type="language">
+        German
+        <level>fluent</level>
+        <certification>Goethe-Institut C1</certification>
     </skill>
 
     <skill type="soft" tags="writing">Literary analysis</skill>

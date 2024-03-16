@@ -6,7 +6,6 @@ tree = ET.parse('lomax.xml')
 root = tree.getroot()
 
 config = yaml.safe_load(open('config.yml', 'r'))
-print(config)
 
 def score_element(xmlEl, conf):
     score = 0
@@ -30,9 +29,6 @@ def prioritize(xmlList, tagType, conf):
     if limit > 0:
         xmlList = xmlList[0:limit]
     return xmlList
-
-for skill in root.find('skills').findall('skill'):
-    print(skill.text.strip(), score_element(skill, config))
 
 templateLoader = jinja2.FileSystemLoader(searchpath="./tpl/")
 templateEnv = jinja2.Environment(loader=templateLoader)

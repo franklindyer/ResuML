@@ -16,11 +16,14 @@
     My skills include:
     <ul>
         {% for skill in prioritize(skills.findall('skill'), 'skills') -%}
-        <li>The {{ {"proglang": "programming language",
+        <li> The {{ {"proglang": "programming language",
                     "tech": "technology",
                     "language": "spoken language of",
                     "soft": "soft skill of"}[skill.get('type')] 
-            }} {{ skill.text.strip() }}</li>
+             }} {{ skill.text.strip() }} 
+             {%- if skill.find('certification') is not none -%}
+             &nbsp;({{ skill.find('certification').text }})
+             {%- endif %} </li>
         {% endfor %}
     </ul>
 <body>
