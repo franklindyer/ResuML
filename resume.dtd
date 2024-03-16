@@ -1,5 +1,5 @@
 <!ELEMENT resume
-    (identity, contact?)>
+    (identity, contact?, skills?)>
 <!ELEMENT identity
     (name, dob?, pronouns?)>
 <!ELEMENT name (#PCDATA)>
@@ -21,3 +21,12 @@
 <!ELEMENT email (#PCDATA)>
 <!ATTLIST email
     type (personal | work) #IMPLIED>
+
+<!ELEMENT skills
+    (skill)+>
+<!ELEMENT skill
+    (#PCDATA | certification | level)*>
+<!ATTLIST skill
+    type (tech | proglang | language | soft) #IMPLIED>
+<!ELEMENT certification (#PCDATA)>
+<!ELEMENT level (#PCDATA)>
