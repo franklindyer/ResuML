@@ -6,7 +6,7 @@
 
 <body>
     {% set identity = resume.find('identity') -%}
-    <h1>{{ identity.find('name').text }}'s resumé</h1>
+    <h1>{{ identity.find('name').text }}'s CV</h1>
 
     {% set contact = resume.find('contact') -%}
     {% set email = contact.find('email') -%}
@@ -22,8 +22,8 @@
                     "language": "spoken language of",
                     "softskill": "soft skill of"}[skill.tag] 
              }} {{ skill.text.strip() }} 
-             {%- if skill.find('certification') is not none -%}
-             &nbsp;({{ skill.find('certification').text }})
+             {%- if skill.get('cert') is not none -%}
+             &nbsp;({{ skill.get('cert') }})
              {%- endif %} </li>
         {% endfor %}
     </ul>
@@ -39,5 +39,32 @@
         <li>{{ role.text }}</li>
         {% endfor %}
     </ul>
+    {% endfor %}
+
+    <hr>
+    {% set education = resume.find('education') -%}
+    <h2>Education</h2>
+    {% for inst in education.findall('institution') -%}
+    <h3>{{ inst.get('name') }}</h3>
+    <i>{{ inst.find('certificate').text }}</i>
+    {% for session in inst.findall('session') -%}
+    <h4>{{ session.get('section') }} {{ session.get('year') }}</h4>
+    <table>
+        <tr>
+            <td>Course title</td>
+            <td>Grade</td>
+        </tr>
+        {% for course in session.findall('course') -%}
+        <tr>
+            {% if course.get('weburl') is not none: -%}
+            <td><a href="{{ course.get('weburl') }}">{{ course.get('title') }}</a></td>
+            {% else %}
+            <td>{{ course.get('title') }}</td> 
+            {% endif %}
+            <td>{{ course.get('grade') }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endfor %}
     {% endfor %}
 <body>

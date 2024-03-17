@@ -8,7 +8,7 @@
 </identity>
 
 <contact>
-    <email type="work">cwalker@missouri.edu</email>
+    <email type="school">cwalker@missouri.edu</email>
 </contact>
 
 <skills>
@@ -45,5 +45,68 @@
         <role>Assisted discerning visitors in locating sought-after literary treasures.</role>
     </job>
 </history>
+
+<education>
+    <institution name="University of Missouri">
+        <certificate>PhD in English Literature</certificate>
+        <session year="2021" section="Fall">
+            <course title="Advanced Literary Theory" grade="A+"/>
+            <course title="Research Methods in Literary Studies" grade="C"/>
+            <course title="Graduate seminar in Medieval Literature" grade="F"/>
+            <course title="Teaching Practicum: Introduction to Literature" grade="B"/>
+        </session>
+    </institution>
+    <institution name="Washington University">
+        <certificate>B.A. in English</certificate>
+        <session year="2021" section="Spring">
+            <course title="Modernist Poetry" grade="A"/>
+            <course title="Literature and Society" grade="A"/>
+            <course title="Seminar in Literary Criticism" grade="A"/>
+            <course title="Senior Thesis in English" grade="B"/>
+        </session>
+        <session year="2020" section="Fall">
+            <course title="Literature of the Global South" grade="A+"/>
+            <course title="Special Topics in Literature" grade="A"/>
+            <course title="Senior Seminar: Capstone Project" grade="B"/>
+            <course title="Independent Study in English" grade="A"/>
+        </session>
+        <session year="2020" section="Spring">
+            <course title="20th Century British Literature" grade="A"/>
+            <course title="Contemporary American Fiction" grade="A"/>
+            <course title="Literary Theory: Advanced Perspectives" grade="C"/>
+            <course title="Gender and Sexuality in Literature" grade="A"/>
+        </session>
+        <session year="2019" section="Fall">
+            <course title="Victorian Novels" grade="A"/>
+            <course title="Postcolonial Literature" grade="A"/>
+            <course title="Drama: Ancient to Modern" grade="A+"/>
+            <course title="Literature of the Harlem Renaissance" grade="A"/>
+        </session>
+        <session year="2019" section="Spring">
+            <course title="Victorian Literature" grade="A"/>
+            <course title="20th Century American Poetry" grade="A"/>
+            <course title="Modernist Literature" grade="A"/>
+            <course title="Literature and Film" grade="A"/>
+        </session>
+        <session year="2018" section="Fall">
+            <course title="British Romanticism" grade="A"/>
+            <course title="19th Century American Literature" grade="A"/>
+            <course title="Shakespearean Studies" grade="A"/>
+            <course title="Literary Criticism and Theory" grade="B"/>
+        </session>
+        <session year="2018" section="Spring">
+            <course title="British Literature: Medieval to Renaissance" grade="C"/>
+            <course title="American Literature: Colonial to Civil War" grade="A"/>
+            <course title="Critical Theory and Literary Analysis" grade="B"/>
+            <course title="Creative Writing Workshop" grade="A+"/>
+        </session>
+        <session year="2017" section="Fall">
+            <course title="Introduction to Literature" grade="A"/>
+            <course title="Composition and Rhetoric" grade="A+"/>
+            <course title="World Literature Survey" grade="B-"/>
+            <course title="Freshman Seminar: Literary Analysis" grade="A"/>
+        </session>
+    </institution>
+</education>
 
 </resume>

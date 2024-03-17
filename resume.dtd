@@ -1,5 +1,5 @@
 <!ELEMENT resume
-    (identity, contact?, skills?, history?)>
+    (identity, contact?, skills?, history?, education?)>
 
 <!ELEMENT identity
     (name, dob?, pronouns?)>
@@ -56,3 +56,21 @@
 <!ELEMENT to EMPTY>
 <!ATTLIST to %datelike.att;>
 <!ELEMENT role (#PCDATA)>
+
+<!ELEMENT education
+    (institution)+>
+<!ELEMENT institution
+    (certificate | session)+>
+<!ATTLIST institution
+    name    CDATA   #REQUIRED>
+<!ELEMENT certificate (#PCDATA)>
+<!ELEMENT session
+    (course)+>
+<!ATTLIST session
+    year    CDATA #IMPLIED
+    section CDATA #IMPLIED>
+<!ELEMENT course EMPTY>
+<!ATTLIST course
+    title   CDATA   #REQUIRED
+    grade   CDATA   #IMPLIED
+    weburl  CDATA   #IMPLIED>
