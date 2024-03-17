@@ -35,7 +35,30 @@ def prioritize(xml_list, tag_type, conf):
         xml_list = xml_list[0:limit]
     return xml_list
 
+def date_format(datelike):
+    d = datelike.get('day')
+    m = datelike.get('month')
+    y = datelike.get('year')
+    dstring = ""
+    if m is not None:
+        dstring = m
+        if d is not None:
+            dstring = f"{m} {d},"
+    dstring = dstring + f" {y}"
+    return dstring
+
+def daterange_format(dfrom, dto):
+    if dto is None:
+        return f"{date_format(dfrom)} - present"
+    else:
+        return f"{date_format(dfrom)} - {date_format(dto)}"
+
+helpers = {
+    "prioritize": lambda x, tt: prioritize(x, tt, config),
+    "daterange": daterange_format 
+}
+
 templateLoader = jinja2.FileSystemLoader(searchpath="./")
 templateEnv = jinja2.Environment(loader=templateLoader)
 t = templateEnv.get_template(RESUME_TEMPLATE)
-print(t.render(resume=root, conf=config, prioritize=lambda x, tt: prioritize(x, tt, config)))
+print(t.render(resume=root, conf=config, **helpers))

@@ -1,14 +1,15 @@
 <!ELEMENT resume
-    (identity, contact?, skills?)>
+    (identity, contact?, skills?, history?)>
+
 <!ELEMENT identity
     (name, dob?, pronouns?)>
 <!ELEMENT name (#PCDATA)>
-
-<!ELEMENT dob (year, month, day)>
-<!ELEMENT year (#PCDATA)>
-<!ELEMENT month (#PCDATA)>
-<!ELEMENT day (#PCDATA)>
-
+<!ELEMENT dob EMPTY>
+<!ENTITY % datelike.att
+    'year   CDATA   #IMPLIED
+     month  CDATA   #IMPLIED
+     day    CDATA   #IMPLIED'>
+<!ATTLIST dob %datelike.att;>
 <!ELEMENT pronouns (#PCDATA)>
 
 <!ELEMENT contact
@@ -18,7 +19,7 @@
     type (home | work | cell) #IMPLIED>
 <!ELEMENT email (#PCDATA)>
 <!ATTLIST email
-    type (personal | work) #IMPLIED>
+    type (personal | work | school) #IMPLIED>
 <!ELEMENT weburl (#PCDATA)>
 <!ELEMENT social (#PCDATA)>
 <!ATTLIST social
@@ -38,3 +39,20 @@
 <!ATTLIST proglang  %skill.att;>
 <!ELEMENT softskill (#PCDATA)>
 <!ATTLIST softskill %skill.att;>
+
+<!ELEMENT history
+    (job | volunteer)+>
+<!ENTITY % position.att
+    'org    CDATA   #IMPLIED
+     title  CDATA   #IMPLIED'>
+<!ENTITY % position.el
+    '(from, to?, role+)'>
+<!ELEMENT job %position.el;>
+<!ATTLIST job %position.att;>
+<!ELEMENT volunteer %position.el;>
+<!ATTLIST volunteer %position.att;>
+<!ELEMENT from EMPTY>
+<!ATTLIST from %datelike.att;>
+<!ELEMENT to EMPTY>
+<!ATTLIST to %datelike.att;>
+<!ELEMENT role (#PCDATA)>

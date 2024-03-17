@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE resume SYSTEM "../resume.dtd">
+<resume>
+
+<identity>
+    <name>Charles Walker</name>
+    <pronouns>He/him</pronouns>
+</identity>
+
+<contact>
+    <email type="work">cwalker@missouri.edu</email>
+</contact>
+
+<skills>
+    <tech tags="writing">Microsoft Word</tech>
+    <tech tags="stats">Microsoft Excel</tech>
+    <tech tags="design">Microsoft Powerpoint</tech>
+
+    <proglang tags="writing">LaTeX</proglang> 
+    <proglang tags="web,writing">HTML</proglang> 
+    <proglang tags="web,design">CSS</proglang> 
+
+    <language level="native">English</language>
+    <language level="fluent" cert="Goethe-Institut C1">German</language>
+
+    <softskill tags="writing">Literary analysis</softskill>
+    <softskill tags="teaching">Teaching</softskill>
+</skills>
+
+<history>
+    <job 
+        org="University of Missouri, English Language and Literature department"
+        title="Instructor">
+        <from year="2021" month="August"/>
+        <role>Delivered discourses to an inaugural collegiate cohort, fostering intellectual growth.</role>
+        <role>Facilitated the refinement of scholastic prose amidst aspiring minds.</role>
+        <role>Evaluated scholarly compositions and academic tasks with fastidious precision.</role>
+    </job>
+    <job
+        org="Washington University"
+        title="Student librarian">
+        <from year="2018" month="August"/>
+        <to year="2021" month="May"/>
+        <role>Ensured the restoration of literary tomes to their rightful abodes upon the shelves of knowledge.</role>
+        <role>Assisted discerning visitors in locating sought-after literary treasures.</role>
+    </job>
+</history>
+
+</resume>
