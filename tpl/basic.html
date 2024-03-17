@@ -15,15 +15,15 @@
     {% set skills = resume.find('skills') -%}
     My skills include:
     <ul>
-        {% for skill in prioritize(skills.findall('skill'), 'skills') -%}
+        {% for skill in prioritize(skills, 'skills') -%}
         <li> The {{ {"proglang": "programming language",
                     "tech": "technology",
                     "language": "spoken language of",
-                    "soft": "soft skill of"}[skill.get('type')] 
+                    "softskill": "soft skill of"}[skill.tag] 
              }} {{ skill.text.strip() }} 
              {%- if skill.find('certification') is not none -%}
              &nbsp;({{ skill.find('certification').text }})
              {%- endif %} </li>
-        {% endfor %}
+        {% endfor -%}
     </ul>
 <body>

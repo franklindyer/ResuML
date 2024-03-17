@@ -12,22 +12,29 @@
 <!ELEMENT pronouns (#PCDATA)>
 
 <!ELEMENT contact
-    (phone | email)*>
-
+    (phone | email | weburl)*>
 <!ELEMENT phone (#PCDATA)>
 <!ATTLIST phone
     type (home | work | cell) #IMPLIED>
-
 <!ELEMENT email (#PCDATA)>
 <!ATTLIST email
     type (personal | work) #IMPLIED>
+<!ELEMENT weburl (#PCDATA)>
+<!ELEMENT social (#PCDATA)>
+<!ATTLIST social
+    site CDATA #REQUIRED>
 
 <!ELEMENT skills
-    (skill)+>
-<!ELEMENT skill
-    (#PCDATA | certification | level)*>
-<!ATTLIST skill
-    type (tech | proglang | language | soft | other)    #IMPLIED
-    tags CDATA                                          #IMPLIED>
-<!ELEMENT certification (#PCDATA)>
-<!ELEMENT level (#PCDATA)>
+    (language | tech | proglang | softskill)+>
+<!ENTITY % skill.att
+    'tags   CDATA   #IMPLIED
+     cert   CDATA   #IMPLIED
+     level  CDATA   #IMPLIED'>
+<!ELEMENT language  (#PCDATA)>
+<!ATTLIST language  %skill.att;>
+<!ELEMENT tech      (#PCDATA)>
+<!ATTLIST tech      %skill.att;>
+<!ELEMENT proglang  (#PCDATA)>
+<!ATTLIST proglang  %skill.att;>
+<!ELEMENT softskill (#PCDATA)>
+<!ATTLIST softskill %skill.att;>

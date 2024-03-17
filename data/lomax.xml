@@ -12,26 +12,19 @@
 </contact>
 
 <skills>
-    <skill type="tech" tags="writing">Microsoft Word</skill>
-    <skill type="tech" tags="stats">Microsoft Excel</skill>
-    <skill type="tech" tags="design">Microsoft Powerpoint</skill>
+    <tech tags="writing">Microsoft Word</tech>
+    <tech tags="stats">Microsoft Excel</tech>
+    <tech tags="design">Microsoft Powerpoint</tech>
 
-    <skill type="proglang" tags="writing">LaTeX</skill> 
-    <skill type="proglang" tags="web,writing">HTML</skill> 
-    <skill type="proglang" tags="web,design">CSS</skill> 
+    <proglang tags="writing">LaTeX</proglang> 
+    <proglang tags="web,writing">HTML</proglang> 
+    <proglang tags="web,design">CSS</proglang> 
 
-    <skill type="language">
-        English
-        <level>native</level>
-    </skill>
-    <skill type="language">
-        German
-        <level>fluent</level>
-        <certification>Goethe-Institut C1</certification>
-    </skill>
+    <language level="native">English</language>
+    <language level="flient" cert="Goethe-Institut C1">German</language>
 
-    <skill type="soft" tags="writing">Literary analysis</skill>
-    <skill type="soft" tags="teaching">Teaching</skill>
+    <softskill tags="writing">Literary analysis</softskill>
+    <softskill tags="teaching">Teaching</softskill>
 </skills>
 
 </resume>

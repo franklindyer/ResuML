@@ -14,14 +14,13 @@ config = yaml.safe_load(open(RESUME_CONFIG, 'r'))
 
 def score_element(xml_el, conf):
     score = 0
-    type = xml_el.get('type')
-    type = "" if type is None else type
+    type = xml_el.get('tag')
     tags = xml_el.get('tags')
     tags = "" if tags is None else tags.split(",")
     priorities = conf["priorities"]
     if priorities is not None:
         for tag in priorities:
-            if xml_el.get('type') == tag or tag in tags:
+            if type == tag or tag in tags:
                 score += priorities[tag]
     return score
 
