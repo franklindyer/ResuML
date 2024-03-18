@@ -1,0 +1,7 @@
+limits:
+omit:
+    - language
+    - softskill
+    - education
+priorities:
+    proglang: 10

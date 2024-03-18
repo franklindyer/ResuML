@@ -1,6 +1,8 @@
+limits:
+    skills: 4
+omit:
 priorities:
     language: 50
     web: 20
+    software: 10
     design: 10
-limits:
-    skills: 4 

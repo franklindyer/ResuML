@@ -12,8 +12,9 @@
     {% set email = contact.find('email') -%}
     <p>You can contact me through my {{ email.get('type') }} email: {{ email.text }}</p>
 
-    <hr>
     {% set skills = resume.find('skills') -%}
+    {% if skills is not none -%}
+    <hr>
     <h2>Skills</h2>
     <ul>
         {% for skill in prioritize(skills, 'skills') -%}
@@ -27,9 +28,11 @@
              {%- endif %} </li>
         {% endfor %}
     </ul>
+    {% endif %}
 
-    <hr>
     {% set history = resume.find('history') -%}
+    {% if history is not none -%}
+    <hr>
     <h2>Experience</h2>
     {% for position in history -%}
     <h3>{{ position.get('title') }}</h3>
@@ -40,6 +43,7 @@
         {% endfor %}
     </ul>
     {% endfor %}
+    {% endif %}
 
     {% for portfolio in resume.findall('portfolio') -%}
     <hr>
@@ -61,8 +65,9 @@
     {% endfor %}
     {% endfor %}
 
-    <hr>
     {% set education = resume.find('education') -%}
+    {% if education is not none -%}
+    <hr>
     <h2>Education</h2>
     {% for inst in education.findall('institution') -%}
     <h3>{{ inst.get('name') }}</h3>
@@ -87,5 +92,6 @@
     </table>
     {% endfor %}
     {% endfor %}
+    {% endif %}
 
 <body>

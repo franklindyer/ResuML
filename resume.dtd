@@ -43,8 +43,9 @@
 <!ELEMENT history
     (job | volunteer)+>
 <!ENTITY % position.att
-    'org    CDATA   #IMPLIED
-     title  CDATA   #IMPLIED'>
+    'org    CDATA   #REQUIRED
+     title  CDATA   #REQUIRED
+     loc    CDATA   #IMPLIED'>
 <!ENTITY % position.el
     '(from, to?, role+, tools?)'>
 <!ELEMENT job %position.el;>

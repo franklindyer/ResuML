@@ -12,9 +12,22 @@ root = tree.getroot()
 
 config = yaml.safe_load(open(RESUME_CONFIG, 'r'))
 
+if config["omit"] is not None:
+    for omit in config["omit"]:
+        root_par = ET.Element("rootpar")
+        root_par.append(root)
+        for xml_par in root_par.findall(".//"):
+            for xml_el in xml_par.findall(omit):
+                xml_par.remove(xml_el)
+
+#####################################################
+# Below are some helper functions to be passed into #
+#   the Jinja template for convenience.             #
+#####################################################
+
 def score_element(xml_el, conf):
     score = 0
-    type = xml_el.get('tag')
+    type = xml_el.tag
     tags = xml_el.get('tags')
     tags = "" if tags is None else tags.split(",")
     priorities = conf["priorities"]

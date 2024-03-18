@@ -1,0 +1,221 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\setlength{\tabcolsep}{12pt}
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    { #1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{ #1 } & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{ #1 }\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+
+{% set identity = resume.find('identity') %}
+{% set contact = resume.find('contact') %}
+\begin{center}
+    \textbf{\Huge \scshape {{ identity.find('name').text }} } \\ \vspace{1pt}
+    {% set email = contact.find('email') %}
+    {% set phone = contact.find('phone') %}
+    \small
+        {%- if phone is not none -%}
+        {{ phone.text }} \: \: 
+        {%- endif -%}
+        {% set email = contact.find('email') %}
+        {%- if email is not none -%}
+        \href{mailto:{{ email.text }} }{\underline{ {{ email.text }} }} \: \:
+        {%- endif -%}
+        {%- for weburl in contact.findall('weburl') -%}
+        \href{ {{ weburl.text }} }{\underline{ {{ weburl.text }} }} \: \:
+        {%- endfor -%}
+\end{center}
+
+
+%-----------EDUCATION-----------
+{% set education = resume.find('education') %}
+{% if education is not none %}
+\section{Education}
+    {% for inst in education.findall('institution') -%}
+    \resumeSubheading
+      { {{- inst.get('name') -}} }{ {{ inst.get('loc') if inst.get('loc') is not none }} }
+      {
+        {%- for cert in inst.findall('certificate') -%}
+        \: {{ cert.text }}{{ ", " if not loop.last else "" }} 
+        {%- endfor -%} 
+      }{ {{ daterange(inst.find('from'), inst.find('to')) if inst.find('from') is not none }} }
+        \\ ~ \\
+      \begin{center}
+      \begin{tabular}{l l l}
+        {% for session in inst.findall('session') %}
+        \hline
+        {% for course in session.findall('course') %}
+        {{ course.get('title') }} & {{ session.get('section') }} {{ session.get('year') }} & {{ course.get('grade') }} \\
+        {% endfor %}
+        {% endfor %}
+      \end{tabular}
+      \end{center}
+    {% endfor %}
+{% endif %}
+
+%-----------EXPERIENCE-----------
+{% set history = resume.find('history') %}
+{% if history is not none %}
+\section{Experience}
+  \resumeSubHeadingListStart
+    {% for position in history %}
+    \item\resumeSubheading
+      { {{ position.get('title') }} }{ {{ daterange(position.find('from'), position.find('to')) }} }
+      { {{ position.get('org') }} }{ {{ position.get('loc') if position.get('loc') is not none }} }
+      \resumeItemListStart
+        {% for role in position.findall('role') -%}
+        \resumeItem{ {{ role.text }} }
+        {% endfor %}
+      \resumeItemListEnd
+      {% endfor %}
+  \resumeSubHeadingListEnd
+{% endif %}      
+
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\href{https://franklin.dyer.me}{\textbf{Personal website}} $|$ \emph{Python, Bottle, SQL, Docker, nginx, HTML/CSS}}{}
+          \resumeItemListStart
+            \resumeItem{Developed, maintained and deployed a full-stack web site hosted on a DigitalOcean droplet}
+            \resumeItem{Wrote accessible posts on a variety of technical topics involving math, computer science and languages}
+            \resumeItem{Began internationalizing website by translating text into four languages}
+          \resumeItemListEnd
+
+        \resumeProjectHeading
+         {Open-source contributions}{}
+          \resumeItemListStart
+            \resumeItem{Top 1\% of contributors to \href{https://math.meta.stackexchange.com/users/438055/franklin-pezzuti-dyer?tab=profile}{Math Stack Exchange}, a mathematics Q\&A site}
+            \resumeItem{\href{https://localazy.com/p/kagi-search/contributors/franklin}{Trusted translator on Localazy} for Kagi search engine}
+            \resumeItem{Contributed \href{https://github.com/zotero/translators}{translators} to Zotero, software for generating citations from webpages}
+          \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------SKILLS-----------
+\section{Skills}
+{% set skills = resume.find('skills') %}
+{% if skills is not none %}
+{% set techs = skills.findall('tech') %}
+{% set proglangs = skills.findall('proglang') %}
+{% set languages = skills.findall('language') %}
+{% set softskills = skills.findall('softskill') %}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+    {% if techs != [] %}
+    \textbf{Tools}: \: 
+    {%- for tool in prioritize(techs, 'skills') -%}
+        {{ tool.text }}{{ ", " if not loop.last else "" }}
+    {%- endfor -%}
+    {% endif %}
+    {% if proglangs != [] %}
+    \textbf{Programming languages}: \: 
+    {%- for proglang in prioritize(proglangs, 'skills') -%}
+        {{ proglang.text }}{{ ", " if not loop.last else "" }}
+    {%- endfor -%}
+    {% endif %}
+    {% if languages != [] %}
+    \textbf{Spoken languages}: \: 
+    {%- for language in prioritize(languages, 'skills') -%}
+        {{ language.text }}{{ "("+language.get('level')+")" if language.get('level') is not none }}{{ ", " if not loop.last else "" }}
+    {%- endfor -%}
+    {% endif %}
+    {% if softskills != [] %}
+    \textbf{Soft skills}: \: 
+    {%- for softskill in prioritize(softskills, 'skills') -%}
+        {{ softskill.text }}{{ ", " if not loop.last else "" }}
+    {%- endfor -%}
+    {% endif %}
+     }}
+ \end{itemize}
+{% endif %}
+
+
+%-------------------------------------------
+\end{document}
+
