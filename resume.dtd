@@ -1,5 +1,5 @@
 <!ELEMENT resume
-    (identity, contact?, skills?, history?, education?)>
+    (identity, contact?, skills?, history?, education?, portfolio*)>
 
 <!ELEMENT identity
     (name, dob?, pronouns?)>
@@ -46,7 +46,7 @@
     'org    CDATA   #IMPLIED
      title  CDATA   #IMPLIED'>
 <!ENTITY % position.el
-    '(from, to?, role+)'>
+    '(from, to?, role+, tools?)'>
 <!ELEMENT job %position.el;>
 <!ATTLIST job %position.att;>
 <!ELEMENT volunteer %position.el;>
@@ -56,6 +56,12 @@
 <!ELEMENT to EMPTY>
 <!ATTLIST to %datelike.att;>
 <!ELEMENT role (#PCDATA)>
+<!ELEMENT tools
+    (tool)+>
+<!ELEMENT tool EMPTY>
+<!ATTLIST tool
+    name    CDATA   #REQUIRED
+    tags    CDATA   #IMPLIED>
 
 <!ELEMENT education
     (institution)+>
@@ -74,3 +80,17 @@
     title   CDATA   #REQUIRED
     grade   CDATA   #IMPLIED
     weburl  CDATA   #IMPLIED>
+
+<!ELEMENT portfolio
+    (project)+>
+<!ATTLIST portfolio
+    type    CDATA   #REQUIRED>
+<!ELEMENT project
+    (date?, tools?, aspect*)>
+<!ATTLIST project
+    name    CDATA   #REQUIRED
+    weburl  CDATA   #IMPLIED
+    tags    CDATA   #IMPLIED>
+<!ELEMENT date EMPTY>
+<!ATTLIST date %datelike.att;>
+<!ELEMENT aspect (#PCDATA)>

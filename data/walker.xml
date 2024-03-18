@@ -109,4 +109,22 @@
     </institution>
 </education>
 
+<portfolio type="Publications">
+    <project 
+        name="Temporal Convergence: Intertextual Echoes in Victorian and Modernist Discourses"
+        tags="victorian,modernism">
+        <date year="2022"/>
+    </project>
+    <project 
+        name="Narrative Labyrinth: Deconstructing Gender Constructs in Postcolonial Narratives"
+        tags="postcolonialism,gender,deconstruction">
+        <date year="2022"/>
+    </project>
+    <project 
+        name="Phantasmagorical Realms: Exploring the Intersection of Myth and Reality in Contemporary American Fiction"
+        tags="myth,american-lit">
+        <date year="2021"/>
+    </project>
+</portfolio>
+
 </resume>

@@ -55,6 +55,7 @@ def daterange_format(dfrom, dto):
 
 helpers = {
     "prioritize": lambda x, tt: prioritize(x, tt, config),
+    "date": date_format,
     "daterange": daterange_format 
 }
 

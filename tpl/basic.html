@@ -41,6 +41,26 @@
     </ul>
     {% endfor %}
 
+    {% for portfolio in resume.findall('portfolio') -%}
+    <hr>
+    <h2>{{ portfolio.get('type') }}</h2>
+    {% for project in prioritize(portfolio, 'portfolio') -%}
+    <b>{{ project.get('name') }}</b> 
+    {% if project.get('weburl') is not none -%}
+    (<a href="{{ project.get('weburl') }}">link</a>)
+    {% endif %}
+    <br>
+    <i>{{ date(project.find('date')) }}</i> <br>
+    {% if project.find('aspect') is not none -%}
+    <ul>
+        {% for aspect in project.findall('aspect') -%}
+        <li>{{ aspect.text }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+
     <hr>
     {% set education = resume.find('education') -%}
     <h2>Education</h2>
@@ -67,4 +87,5 @@
     </table>
     {% endfor %}
     {% endfor %}
+
 <body>
