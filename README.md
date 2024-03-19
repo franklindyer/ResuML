@@ -1,3 +1,10 @@
+## Dependencies
+
+You will need the `jinja2` and `yaml` packages for Python. You can install them like this:
+```
+python3 -m pip install jinja2 pyyaml
+```
+
 ## Usage and directory structure
 
 Here are the purposes of a few directories within this project:

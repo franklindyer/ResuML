@@ -156,25 +156,35 @@
 
 
 %-----------PROJECTS-----------
-\section{Projects}
-    \resumeSubHeadingListStart
+{% for portfolio in resume.findall('portfolio') %}
+\section{ {{ portfolio.get('type') }} }
+\resumeSubHeadingListStart
+{% for project in prioritize(portfolio, 'portfolio') %}
       \resumeProjectHeading
-          {\href{https://franklin.dyer.me}{\textbf{Personal website}} $|$ \emph{Python, Bottle, SQL, Docker, nginx, HTML/CSS}}{}
+          {
+            {%- if project.get('weburl') is not none -%}
+            \href{ {{ project.get('weburl') }} }{ {{ project.get('name') }} }
+            {%- else -%}
+            {{ project.get('name') }}
+            {%- endif -%}
+            {%- if project.find('tools') is not none -%}
+            $|$ \emph{
+                {%- for tool in prioritize(project.find('tools').findall('tool'), 'tools') -%}
+                {{ tool.get('name') }}{{ ", " if not loop.last else "" }}\:
+                {%- endfor -%}
+            }
+            {%- endif -%}
+          }{}
+          {% if project.findall('aspect') != [] -%}
           \resumeItemListStart
-            \resumeItem{Developed, maintained and deployed a full-stack web site hosted on a DigitalOcean droplet}
-            \resumeItem{Wrote accessible posts on a variety of technical topics involving math, computer science and languages}
-            \resumeItem{Began internationalizing website by translating text into four languages}
+            {% for aspect in project.findall('aspect') -%}
+            \resumeItem{ {{ aspect.text }} }
+            {% endfor %}
           \resumeItemListEnd
-
-        \resumeProjectHeading
-         {Open-source contributions}{}
-          \resumeItemListStart
-            \resumeItem{Top 1\% of contributors to \href{https://math.meta.stackexchange.com/users/438055/franklin-pezzuti-dyer?tab=profile}{Math Stack Exchange}, a mathematics Q\&A site}
-            \resumeItem{\href{https://localazy.com/p/kagi-search/contributors/franklin}{Trusted translator on Localazy} for Kagi search engine}
-            \resumeItem{Contributed \href{https://github.com/zotero/translators}{translators} to Zotero, software for generating citations from webpages}
-          \resumeItemListEnd
-
+          {% endif %}
+{% endfor %}
 \resumeSubHeadingListEnd
+{% endfor %}
 
 
 %-----------SKILLS-----------
